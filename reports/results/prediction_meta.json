@@ -1,0 +1,14 @@
+{
+  "target": "rating >= 5.0",
+  "seed": 20260923,
+  "test_size": 0.2,
+  "n_train": 8359,
+  "n_test": 2090,
+  "positive_rate_train": 0.2713,
+  "positive_rate_test": 0.2713,
+  "not_run": {
+    "B1": "no cafe attributes in fallback data",
+    "M4": "model downloads blocked; skipped per owner"
+  },
+  "grouping": "none possible (no cafe identifier); exact duplicates removed before split"
+}

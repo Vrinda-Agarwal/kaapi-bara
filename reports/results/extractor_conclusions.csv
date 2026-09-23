@@ -1,0 +1,13 @@
+flag,gold_coef_pp,gold_p,lexicon_coef_pp,lexicon_p,same_sign
+pos_food,14.18,0.0018,19.75,0.0,True
+neg_food,-25.15,0.0,-18.39,0.0,True
+pos_service_staff,10.3,0.0845,5.98,0.3169,True
+neg_service_staff,-15.67,0.0001,-8.41,0.0723,True
+pos_wait_time,-0.8,0.9278,12.38,0.1541,False
+neg_wait_time,-14.87,0.0041,-3.53,0.5693,True
+pos_value,3.58,0.5781,0.65,0.9237,True
+neg_value,-8.05,0.1265,-3.92,0.5727,True
+pos_ambience,-6.27,0.228,-7.93,0.1376,True
+pos_seating_space,-7.07,0.4628,-13.86,0.1045,True
+pos_cleanliness,1.54,0.9102,12.8,0.3068,True
+pos_location_access,-1.84,0.8402,14.18,0.1257,False

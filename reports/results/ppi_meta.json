@@ -1,0 +1,7 @@
+{
+  "n_labeled": 400,
+  "n_unlabeled": 10049,
+  "flags_compared": 12,
+  "same_sign": 10,
+  "ppi_note": "independent reviews assumed; no cafe clustering possible"
+}

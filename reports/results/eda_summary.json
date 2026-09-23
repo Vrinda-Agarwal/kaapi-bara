@@ -1,0 +1,45 @@
+{
+  "clean_log": {
+    "n_raw": 27762,
+    "n_mojibake_repaired": 2646,
+    "n_dropped_empty_text": 23,
+    "n_dropped_missing_rating": 0,
+    "n_dropped_exact_duplicates": 17212,
+    "n_dropped_conflicting_rating": 78,
+    "n_clean": 10449,
+    "source": "https://raw.githubusercontent.com/klimanyusuf/Zomato-Rating/master/Dataset_zomato_reviews.zip",
+    "sha256": "706f9faa1c6e7ec1929307797db1faeef1554315803460553de64a77d076d324"
+  },
+  "rating_counts": {
+    "1.0": 1324,
+    "1.5": 68,
+    "2.0": 585,
+    "2.5": 115,
+    "3.0": 1512,
+    "3.5": 400,
+    "4.0": 3262,
+    "4.5": 348,
+    "5.0": 2835
+  },
+  "share_5_star": 0.2713,
+  "share_ge_4_5": 0.3046,
+  "share_ge_4": 0.6168,
+  "words_quantiles": {
+    "0.1": 11.0,
+    "0.25": 29.0,
+    "0.5": 44.0,
+    "0.75": 74.0,
+    "0.9": 111.0
+  },
+  "median_words_by_rating": {
+    "1.0": 30.0,
+    "1.5": 53.5,
+    "2.0": 38.0,
+    "2.5": 52.0,
+    "3.0": 53.5,
+    "3.5": 49.0,
+    "4.0": 50.0,
+    "4.5": 41.5,
+    "5.0": 40.0
+  }
+}

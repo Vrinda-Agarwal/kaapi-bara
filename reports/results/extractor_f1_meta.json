@@ -1,0 +1,9 @@
+{
+  "n_gold": 400,
+  "seed": 20260923,
+  "min_pos_for_supervised": 15,
+  "labeler": "project assistant (single annotator, blind to extractor output); not human-annotated",
+  "micro_f1": {
+    "lexicon-v1": 0.71
+  }
+}

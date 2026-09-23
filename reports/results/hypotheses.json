@@ -1,0 +1,106 @@
+{
+  "H1": {
+    "most_negative_neg_term": "neg_food",
+    "neg_service_staff_coef_pp": -10.69,
+    "bootstrap_share_service_most_negative": 0.0,
+    "pairwise_vs_service": [
+      {
+        "other": "neg_coffee",
+        "diff_pp": -2.0,
+        "p": 0.7089,
+        "p_bh": 0.7089
+      },
+      {
+        "other": "neg_food",
+        "diff_pp": 6.72,
+        "p": 0.0,
+        "p_bh": 0.0
+      },
+      {
+        "other": "neg_wait_time",
+        "diff_pp": -6.25,
+        "p": 0.0016,
+        "p_bh": 0.006
+      },
+      {
+        "other": "neg_value",
+        "diff_pp": -2.97,
+        "p": 0.0556,
+        "p_bh": 0.0833
+      },
+      {
+        "other": "neg_ambience",
+        "diff_pp": -6.28,
+        "p": 0.0037,
+        "p_bh": 0.0067
+      },
+      {
+        "other": "neg_seating_space",
+        "diff_pp": 0.92,
+        "p": 0.6564,
+        "p_bh": 0.7089
+      },
+      {
+        "other": "neg_noise_crowding",
+        "diff_pp": -7.6,
+        "p": 0.0025,
+        "p_bh": 0.006
+      },
+      {
+        "other": "neg_cleanliness",
+        "diff_pp": -2.51,
+        "p": 0.1712,
+        "p_bh": 0.2201
+      },
+      {
+        "other": "neg_location_access",
+        "diff_pp": -9.31,
+        "p": 0.0026,
+        "p_bh": 0.006
+      }
+    ],
+    "verdict": "not supported"
+  },
+  "H2": {
+    "penalty_dominant_expected": {
+      "cleanliness": "consistent",
+      "wait_time": "consistent",
+      "wifi_work": "not testable (too few reviews with this flag)"
+    },
+    "symmetric_or_delighter_expected": {
+      "coffee": "inconclusive (CI too wide to tell symmetric from penalty-dominant)",
+      "ambience": "consistent"
+    },
+    "verdict": "partly supported (no aspect contradicts it; some are inconclusive or not testable)"
+  },
+  "H3": {
+    "verdict": "not testable",
+    "reason": "no price tier or cafe segment in fallback data"
+  },
+  "H4": {
+    "verdict": "not testable",
+    "reason": "no cafe-level price or segment in fallback data"
+  },
+  "H5": {
+    "verdict": "not testable",
+    "reason": "no neighbourhood in fallback data"
+  },
+  "design": {
+    "model": "pooled review-level LPM with HC1 SEs; logit robustness",
+    "n_reviews": 10449,
+    "bootstrap_draws": 1000,
+    "seed": 20260923,
+    "dropped_rare_flags": {
+      "neg_wifi_work": 13
+    },
+    "not_run": [
+      "within-cafe fixed effects",
+      "cafe-clustered SEs",
+      "between-cafe model",
+      "mixed-effects check",
+      "cafe-weighted check"
+    ],
+    "reason_not_run": "no cafe identifier in fallback data",
+    "measurement": "aspect flags from lexicon-v1 (micro-F1 0.71 vs single-annotator gold); misclassification biases coefficients, usually toward zero"
+  }
+}
