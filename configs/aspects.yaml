@@ -1,14 +1,95 @@
-# Aspect taxonomy. Definitions live in annotation/codebook.md (Phase 2).
-# Lexicon terms are added in Phase 3.
+# Aspect taxonomy and lexicon for the lexicon + sentence-sentiment extractor.
+# Definitions: annotation/codebook.md.
+#
+# For each aspect:
+#   terms:     words/phrases that mark the aspect in a sentence (regex, case-insensitive,
+#              matched on word boundaries).
+#   pos_cues / neg_cues: aspect-specific phrases that carry polarity on their own
+#              (e.g. "overpriced"). A cue both marks the aspect and sets its direction.
+# Sentence polarity for plain term mentions comes from `sentiment` below.
+
+extractor_version: lexicon-v1
+
+sentiment:
+  negation_window: 3
+  negators: [not, "no", never, "n't", nothing, hardly, neither, nor, without, barely]
+  positive: [good, great, awesome, amazing, excellent, nice, delicious, tasty, yummy, love, loved, lovely,
+             best, perfect, fantastic, wonderful, superb, fresh, friendly, courteous, polite, helpful,
+             attentive, quick, fast, prompt, cozy, cosy, comfortable, clean, hygienic, spacious, quiet,
+             pleasant, beautiful, cool, worth, reasonable, affordable, cheap, recommend, recommended,
+             must, enjoyed, enjoy, happy, satisfied, decent, fine, well, warm, soothing, calm, peaceful,
+             brilliant, outstanding, mouthwatering, flavourful, flavorful, crispy, soft, rich, generous,
+             value, smooth, strong, lovely, pocket-friendly, budget-friendly, relaxing]
+  negative: [bad, worst, poor, terrible, horrible, awful, pathetic, disappointing, disappointed,
+             disappointment, bland, stale, rude, slow, dirty, unhygienic, overpriced, expensive,
+             costly, noisy, loud, crowded, cramped, small, tasteless, burnt, soggy, oily, salty, bitter,
+             watery, raw, undercooked, overcooked, hard, rubbery, late, delay, delayed, waited, wait,
+             waiting, ignored, careless, unprofessional, arrogant, uncomfortable, stuffy, smelly, smell,
+             mess, messy, avoid, never, waste, worthless, mediocre, average, okay, ok, meh, lacking,
+             lack, missing, wrong, issue, problem, complaint, sick, fly, hair, cockroach, insect, pricey]
+
 aspects:
-  - coffee
-  - food
-  - service_staff
-  - wait_time
-  - value
-  - ambience
-  - seating_space
-  - noise_crowding
-  - wifi_work
-  - cleanliness
-  - location_access
+  coffee:
+    terms: [coffee, coffees, cappuccino, latte, lattes, espresso, americano, mocha, macchiato, "cold brew",
+            "filter coffee", kaapi, "flat white", frappe, frappuccino, "iced coffee", brew, cafe mocha]
+    pos_cues: []
+    neg_cues: []
+  food:
+    terms: [food, dish, dishes, taste, tasted, tastes, flavour, flavor, pizza, pasta, burger, burgers,
+            sandwich, sandwiches, biryani, dosa, idli, vada, starters, starter, dessert, desserts, cake,
+            cakes, waffle, waffles, pancake, pancakes, fries, noodles, rice, chicken, paneer, curry,
+            soup, salad, breakfast, lunch, dinner, meal, meals, menu, portion, portions, quantity,
+            shake, shakes, mocktail, mocktails, juice, drinks, drink, beverages, momos, rolls, wraps,
+            brownie, cookies, croissant, bread, naan, roti, thali, kebab, fish, mutton, prawns, egg]
+    pos_cues: [delicious, tasty, yummy, mouthwatering, flavourful, flavorful]
+    neg_cues: [tasteless, bland, stale, undercooked, overcooked, burnt, soggy]
+  service_staff:
+    terms: [service, staff, waiter, waiters, server, servers, manager, owner, crew, team, employees,
+            employee, hospitality, served, serving, attendant, "delivery boy", "delivery guy", packaging,
+            packed, "customer service", "wrong order"]
+    pos_cues: [courteous, polite, hospitable, attentive, "well mannered"]
+    neg_cues: [rude, arrogant, unprofessional, ignored, "wrong order", "missing item", "items missing"]
+  wait_time:
+    terms: [wait, waited, waiting, minutes, mins, hour, hours, quick, quickly, fast, slow, slowly,
+            delay, delayed, late, prompt, promptly, speed, "on time"]
+    pos_cues: ["served quickly", "quick service", "fast service", "on time", "in no time", "prompt service",
+               "delivered quickly", "early delivery"]
+    neg_cues: ["took forever", "long wait", "waited for", "slow service", "very slow", "too slow",
+               "delayed", "late delivery", "took so long", "took too long", "waiting time"]
+  value:
+    terms: [price, prices, priced, pricing, cost, costs, costly, value, money, worth, expensive, cheap,
+            affordable, reasonable, overpriced, pricey, bill, budget, "pocket friendly", "pocket-friendly"]
+    pos_cues: ["value for money", "worth the money", "worth every penny", affordable, "pocket friendly",
+               "pocket-friendly", "reasonably priced", "budget friendly"]
+    neg_cues: [overpriced, "not worth", "too expensive", "very expensive", "over priced", pricey,
+               "waste of money", "burns a hole"]
+  ambience:
+    terms: [ambience, ambiance, atmosphere, vibe, vibes, decor, decoration, interior, interiors, music,
+            lighting, lights, view, theme, setting, "look and feel", aesthetic, aesthetics, feel]
+    pos_cues: [cozy, cosy, aesthetic]
+    neg_cues: [dull, gloomy]
+  seating_space:
+    terms: [seating, seats, seat, chairs, chair, tables, table, space, spacious, cramped, sit, sitting,
+            sofa, couch, outdoor, rooftop, capacity]
+    pos_cues: [spacious, "comfortable seating", "comfy"]
+    neg_cues: [cramped, "no place to sit", "less space", "small place", "uncomfortable"]
+  noise_crowding:
+    terms: [noise, noisy, loud, crowd, crowded, crowdy, rush, rushed, packed, quiet, peaceful, calm,
+            silence, busy]
+    pos_cues: [quiet, peaceful, calm]
+    neg_cues: [noisy, "too loud", overcrowded, "very crowded", "too crowded", crowdy]
+  wifi_work:
+    terms: [wifi, wi-fi, internet, laptop, work, working, study, charging, "charging point", "charging points",
+            sockets, "plug point", "plug points", "work from"]
+    pos_cues: ["good wifi", "free wifi", "work friendly", "laptop friendly"]
+    neg_cues: ["no wifi", "wifi doesn't work", "no charging", "no plug"]
+  cleanliness:
+    terms: [clean, cleanliness, hygiene, hygienic, unhygienic, dirty, washroom, washrooms, restroom,
+            toilet, cutlery, plates, smell, smelly, fly, flies, cockroach, hair, insect, "neat"]
+    pos_cues: [hygienic, spotless, "neat and clean", "clean and hygienic"]
+    neg_cues: [unhygienic, dirty, cockroach, "found a hair", "hair in", "fly in", "insect", smelly]
+  location_access:
+    terms: [location, located, parking, park, reach, find, address, "google maps", locate, landmark,
+            road, lane, accessible, accessibility]
+    pos_cues: ["easy to find", "easy to locate", "good location", "prime location", "easily accessible"]
+    neg_cues: ["no parking", "parking is a problem", "hard to find", "difficult to find", "parking issue"]
