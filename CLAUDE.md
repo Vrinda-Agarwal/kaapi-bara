@@ -21,6 +21,7 @@ All findings are associational. In code comments, figure titles, and reports, wr
 
 - Source: the Kaggle dataset "Zomato Bangalore Restaurants" (`himanshupoddar/zomato-bangalore-restaurants`), file `zomato.csv`. I download it manually into `data/raw/`.
 - Do NOT download it yourself, scrape any website, or call the Google Maps/Places APIs.
+- Status (2026-09-23): the Kaggle file could not be obtained. With owner approval the project uses a substitute review-level file (rating + text only); see `DATA.md`. Never scrape review sites.
 - The dataset was originally scraped from Zomato around 2019. All findings describe that era.
 - `data/` is gitignored. Never commit raw or processed review text. Record the sha256 of the raw file in `DATA.md`.
 - Parse any stringified Python lists safely. Never use `eval()`.
@@ -77,7 +78,7 @@ tests/
 - **Reproducibility:** fix random seeds and record them alongside outputs.
 - **Tests:** pytest for parsing, deduplication, and validation, using small synthetic fixtures rather than real review text.
 - **Makefile targets:** `inspect`, `data`, `aspects`, `train`, `explain`, `report`, `test`.
-- **Git:** small, focused commits with clear messages. Push only to the designated `claude/...` working branch. Never push to any other branch, and never open a PR unless asked.
+- **Git:** small, focused commits with clear messages. `main` is the only branch. Push to `main`; don't create other branches or open PRs unless asked.
 - **No AI attribution:** commits are authored and committed as Vrinda Agarwal <vrindarocks777@gmail.com>. No `Co-Authored-By`, session links, "Generated with" lines, or any other AI or tool branding in commit messages, PR titles or bodies, code, comments, or docs.
 - **Secrets:** API keys come only from environment variables. Never print, log, or commit them.
 - **Prose style (README, reports):** plain and direct. No em dashes, no corporate phrasing.
