@@ -78,6 +78,7 @@ tests/
 - **Tests:** pytest for parsing, deduplication, and validation, using small synthetic fixtures rather than real review text.
 - **Makefile targets:** `inspect`, `data`, `aspects`, `train`, `explain`, `report`, `test`.
 - **Git:** small, focused commits with clear messages. Push only to the designated `claude/...` working branch. Never push to any other branch, and never open a PR unless asked.
+- **No AI attribution:** commits are authored and committed as Vrinda Agarwal <vrindarocks777@gmail.com>. No `Co-Authored-By`, session links, "Generated with" lines, or any other AI or tool branding in commit messages, PR titles or bodies, code, comments, or docs.
 - **Secrets:** API keys come only from environment variables. Never print, log, or commit them.
 - **Prose style (README, reports):** plain and direct. No em dashes, no corporate phrasing.
 
