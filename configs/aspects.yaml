@@ -1,0 +1,14 @@
+# Aspect taxonomy. Definitions live in annotation/codebook.md (Phase 2).
+# Lexicon terms are added in Phase 3.
+aspects:
+  - coffee
+  - food
+  - service_staff
+  - wait_time
+  - value
+  - ambience
+  - seating_space
+  - noise_crowding
+  - wifi_work
+  - cleanliness
+  - location_access

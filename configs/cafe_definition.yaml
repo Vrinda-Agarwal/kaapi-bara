@@ -1,0 +1,58 @@
+# Cafe definition and inspection settings.
+#
+# STATUS: candidates only. The inclusion rule and the target threshold are
+# decisions for the project owner. Nothing below is final until marked so.
+
+raw_file: data/raw/zomato.csv
+
+# Expected raw schema. These column names are an UNVERIFIED expectation;
+# `make inspect` reports which ones actually exist.
+expected_n_rows_approx: 51700
+expected_n_cols: 17
+columns:
+  name: name
+  address: address
+  url: url
+  rest_type: rest_type
+  cuisines: cuisines
+  listed_type: "listed_in(type)"
+  listed_city: "listed_in(city)"
+  location: location
+  cost_for_two: "approx_cost(for two people)"
+  reviews_list: reviews_list
+  aggregate_rate: rate   # leakage: never a feature
+  votes: votes           # leakage: never a feature
+  dish_liked: dish_liked # leakage: never a feature
+
+# Pattern for a single review's rating string, e.g. "Rated 4.0".
+review_rating_regex: '^\s*Rated\s+(\d+(?:\.\d+)?)\s*$'
+
+# Candidate cafe inclusion rules. Each rule is a list of conditions ORed
+# together. A condition matches when the column contains any of the terms
+# (case-insensitive, accents folded so "Café" matches "cafe").
+# Inspection reports counts per rule and pairwise overlaps.
+candidate_cafe_rules:
+  R1_rest_type_cafe:
+    description: "rest_type mentions cafe"
+    any_of:
+      - {column: rest_type, contains: ["cafe"]}
+  R2_listed_cafes:
+    description: "Zomato listing category mentions cafe"
+    any_of:
+      - {column: listed_type, contains: ["cafe"]}
+  R3_cuisine_cafe_or_coffee:
+    description: "cuisines mention cafe or coffee"
+    any_of:
+      - {column: cuisines, contains: ["cafe", "coffee"]}
+  R4_name_keyword:
+    description: "restaurant name contains a coffee-shop keyword"
+    any_of:
+      - {column: name, contains: ["cafe", "coffee", "kaapi", "brew", "roast"]}
+  R5_type_or_listing:
+    description: "R1 or R2"
+    any_of:
+      - {column: rest_type, contains: ["cafe"]}
+      - {column: listed_type, contains: ["cafe"]}
+
+# Candidate review-level target thresholds (review rating >= threshold -> 1).
+candidate_target_thresholds: [5.0, 4.5, 4.0]
