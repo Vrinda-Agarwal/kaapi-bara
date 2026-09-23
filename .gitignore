@@ -1,0 +1,18 @@
+# Data never goes in git (raw, interim, processed review text).
+data/
+!data/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Secrets
+.env
