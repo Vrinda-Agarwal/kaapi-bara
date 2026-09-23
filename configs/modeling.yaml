@@ -1,0 +1,5 @@
+# Target and split settings (defaults picked while the owner was unavailable; see README).
+# Target: a review is "highly positive" when its rating is 5.0 ("5-star").
+target_threshold: 5.0
+test_size: 0.2
+seed: 20260923
