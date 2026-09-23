@@ -1,0 +1,13 @@
+# Which raw file the pipeline reads.
+#
+# primary_source: the Kaggle file described in CLAUDE.md. Not available in the
+# environment where this was built (Kaggle blocked, GitHub LFS copy unreachable).
+# fallback_source: a public GitHub copy of a review-level extract. It has only
+# rating + review_text: no restaurant, price, or location columns.
+primary_source:
+  path: data/raw/zomato.csv
+fallback_source:
+  path: data/raw/alt/Dataset_zomato_reviews.zip
+  member: Zomato_reviews.csv
+  origin_url: https://raw.githubusercontent.com/klimanyusuf/Zomato-Rating/master/Dataset_zomato_reviews.zip
+  sha256: 706f9faa1c6e7ec1929307797db1faeef1554315803460553de64a77d076d324
