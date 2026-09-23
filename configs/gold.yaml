@@ -1,0 +1,5 @@
+# Gold set: simple random sample of cleaned reviews (not stratified).
+n: 400
+seed: 20260923
+# Who produced the labels. Recorded in every output that uses them.
+labeler: "project assistant (single annotator, blind to extractor output); not human-annotated"
